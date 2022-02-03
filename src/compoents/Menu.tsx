@@ -8,10 +8,10 @@ const Menu = () => {
     <Wrapper>
       <MenuList>
         <li>
-          <IoIosMenu />
+          <IoIosMenu size={20} color="#ffffff" />
         </li>
         <li>
-          <AiOutlineHome />
+          <AiOutlineHome size={20} color="#ffffff" />
         </li>
         <li>
           <input type="text" />
@@ -32,6 +32,10 @@ const MenuList = styled.div`
   display: flex;
   align-items: center;
   list-style: none;
+
+  & > * {
+    padding-right: 20px;
+  }
 `;
 
 const MenuElement = styled.li``;
