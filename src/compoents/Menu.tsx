@@ -14,7 +14,7 @@ const Menu = () => {
           <AiOutlineHome size={20} color="#ffffff" />
         </li>
         <li>
-          <input type="text" />
+          <SearchInput type="text" placeholder="Search" />
         </li>
       </MenuList>
     </Wrapper>
@@ -39,3 +39,14 @@ const MenuList = styled.div`
 `;
 
 const MenuElement = styled.li``;
+
+const SearchInput = styled.input`
+  padding: 5px 0 5px 34px;
+  border: 1px solid transparent;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  border-radius: 3px;
+
+  ::placeholder {
+    color: #ffffff;
+  }
+`;
