@@ -1,4 +1,8 @@
-import React from "react";
+import "../App.css";
+import { FiInbox } from "react-icons/fi";
+import { BsCalendarDate } from "react-icons/bs";
+import { BsCalendar3 } from "react-icons/bs";
+import { ImFilter } from "react-icons/im";
 import styled from "styled-components";
 
 const SideBar = () => {
@@ -7,10 +11,22 @@ const SideBar = () => {
       <Container>
         <div>
           <CategoryList>
-            <CategoryElement>Inbox</CategoryElement>
-            <CategoryElement>Today</CategoryElement>
-            <CategoryElement>Upcoming</CategoryElement>
-            <CategoryElement>Filter / Label</CategoryElement>
+            <CategoryElement>
+              <FiInbox size={18} color={"#568EE3"} />
+              Inbox
+            </CategoryElement>
+            <CategoryElement>
+              <BsCalendarDate size={18} color={"#44A15D"} />
+              Today
+            </CategoryElement>
+            <CategoryElement>
+              <BsCalendar3 size={18} color={"#692FC2"} />
+              Upcoming
+            </CategoryElement>
+            <CategoryElement>
+              <ImFilter size={18} color={"#EB8909"} />
+              Filter / Label
+            </CategoryElement>
           </CategoryList>
         </div>
         <div>
@@ -45,7 +61,13 @@ const CategoryList = styled.div`
 `;
 
 const CategoryElement = styled.div`
+  padding-left: 10px;
   font-size: 16px;
+
+  & * {
+    padding: 0 10px 0 0;
+    vertical-align: middle;
+  }
 
   :hover {
     background-color: #ececec;
@@ -66,7 +88,7 @@ const BoardList = styled.div`
 const BoardElement = styled.li`
   font-size: 18px;
   font-weight: bold;
-  padding: 10px 0;
+  padding: 10px 0 10px 10px;
 
   :hover {
     cursor: pointer;
