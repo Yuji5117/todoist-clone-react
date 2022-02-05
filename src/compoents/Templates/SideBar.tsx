@@ -1,4 +1,3 @@
-import "../App.css";
 import { FiInbox } from "react-icons/fi";
 import { BsCalendarDate } from "react-icons/bs";
 import { BsCalendar3 } from "react-icons/bs";

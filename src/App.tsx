@@ -1,14 +1,19 @@
-import "./App.css";
-import Header from "./compoents/Header";
+import Header from "./compoents/Templates/Header";
 import Home from "./compoents/Pages/Home";
+import styled from "styled-components";
 
 function App() {
   return (
-    <div className="App">
+    <Wrapper>
       <Header />
       <Home />
-    </div>
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+`;
