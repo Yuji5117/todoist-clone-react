@@ -8,6 +8,10 @@ const Container = () => {
   const [tmpTitle, setTmpTitle] = useState<string>(title);
   const [isEditMode, setEditMode] = useState<boolean>(false);
 
+  const [tasks, setTasks] = useState<string[]>([]);
+  const [tmpTask, setTmpTask] = useState<string>("");
+  const [isTaskEditMode, setTaskEditMode] = useState<boolean>(false);
+
   const onSaveTitle = () => {
     setTitle(tmpTitle);
     setEditMode(false);
@@ -21,6 +25,22 @@ const Container = () => {
   const onChangeTitle = (e: any) => {
     e.preventDefault();
     setTmpTitle(e.target.value);
+  };
+
+  const onAddTask = () => {
+    setTasks([...tasks, tmpTask]);
+    setTmpTask("");
+    setTaskEditMode(false);
+  };
+
+  const onCancelTask = () => {
+    setTmpTask("");
+    setTaskEditMode(false);
+  };
+
+  const onChangeTask = (e: any) => {
+    e.preventDefault();
+    setTmpTask(e.target.value);
   };
   return (
     <Wrapper>
@@ -49,11 +69,32 @@ const Container = () => {
           <h2>{title}</h2>
         </div>
 
-        {title && (
-          <AddBox onClick={() => setEditMode(true)}>
+        <TaskContainer>
+          {tasks.map((task, index) => (
+            <Tasks className="tasks" key={index}>
+              <h2>{task}</h2>
+            </Tasks>
+          ))}
+        </TaskContainer>
+        {title && !isTaskEditMode && (
+          <AddTaskBox onClick={() => setTaskEditMode(true)}>
             <IoMdAdd />
             <AddText>Add Task</AddText>
-          </AddBox>
+          </AddTaskBox>
+        )}
+        {isTaskEditMode && (
+          <TitleForm>
+            <TitleInput
+              type="text"
+              value={tmpTask}
+              onChange={onChangeTask}
+              placeholder="Add Task"
+            />
+            <ButtonContainer>
+              <AddButton onClick={onAddTask}>Add Task</AddButton>
+              <CancelButton onClick={onCancelTask}>Cancel</CancelButton>
+            </ButtonContainer>
+          </TitleForm>
         )}
       </SectionContainer>
     </Wrapper>
@@ -122,5 +163,33 @@ const CancelButton = styled.button`
 
   :hover {
     text-decoration: underline;
+  }
+`;
+
+const AddTaskBox = styled.div`
+  display: flex;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-top: 10px;
+
+  :hover > * {
+    color: #db4c3f;
+  }
+`;
+
+const TaskContainer = styled.div`
+  & > .tasks {
+    margin-top: 10px;
+  }
+`;
+const Tasks = styled.div`
+  cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+
+  :hover > * {
+    color: #db4c3f;
   }
 `;
