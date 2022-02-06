@@ -101,7 +101,7 @@ const SaveButton = styled.button`
   padding: 10px 16px;
   font-size: 16px;
   background-color: #db4c3f;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 3px;
   margin-right: 5px;
@@ -128,10 +128,6 @@ const MenuList = styled.div`
     margin-right: 20px;
     font-weight: 200;
   }
-
-  /* :last-child > * > * {
-    padding-right: 0;
-  } */
 `;
 
 const MenuElement = styled.li`
