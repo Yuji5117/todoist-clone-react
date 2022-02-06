@@ -15,6 +15,11 @@ const Header = () => {
     setEditMode(false);
   };
 
+  const onCancelTitle = () => {
+    setTmpTitle(title);
+    setEditMode(false);
+  };
+
   const onChangeTitle = (e: any) => {
     e.preventDefault();
     setTmpTitle(e.target.value);
@@ -24,11 +29,13 @@ const Header = () => {
     <Wrapper>
       {!isEditMode && <Title onClick={() => setEditMode(true)}>{title}</Title>}
       {isEditMode && (
-        <div>
-          <input type="text" value={tmpTitle} onChange={onChangeTitle} />
-          <button onClick={onSaveTitle}>Save</button>
-          <button onClick={() => setEditMode(false)}>Cancel</button>
-        </div>
+        <TitleForm>
+          <TitleInput type="text" value={tmpTitle} onChange={onChangeTitle} />
+          <ButtonContainer>
+            <SaveButton onClick={onSaveTitle}>Save</SaveButton>
+            <CancelButton onClick={onCancelTitle}>Cancel</CancelButton>
+          </ButtonContainer>
+        </TitleForm>
       )}
       <div>
         <MenuList>
@@ -64,6 +71,34 @@ const Wrapper = styled.div`
 const Title = styled.h2`
   margin: 0;
   font-weight: bold;
+`;
+
+const TitleForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const TitleInput = styled.input``;
+
+const ButtonContainer = styled.div`
+  display: flex;
+`;
+
+const SaveButton = styled.button`
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: #db4c3f;
+  color: white;
+  border: none;
+  border-radius: 3px;
+`;
+
+const CancelButton = styled.button`
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 3px;
 `;
 
 const MenuList = styled.div`
