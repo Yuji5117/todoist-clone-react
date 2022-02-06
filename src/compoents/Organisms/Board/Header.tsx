@@ -70,7 +70,14 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   margin: 0;
+  font-size: 24px;
   font-weight: bold;
+  cursor: pointer;
+
+  :hover {
+    background-color: #ececec;
+    border-radius: 3px;
+  }
 `;
 
 const TitleForm = styled.form`
@@ -78,7 +85,13 @@ const TitleForm = styled.form`
   flex-direction: column;
 `;
 
-const TitleInput = styled.input``;
+const TitleInput = styled.input`
+  border: 1px solid #808080;
+  border-radius: 5px;
+  font-size: 24px;
+  padding: 5px 5px;
+  margin-bottom: 15px;
+`;
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -91,14 +104,18 @@ const SaveButton = styled.button`
   color: white;
   border: none;
   border-radius: 3px;
+  margin-right: 5px;
 `;
 
 const CancelButton = styled.button`
-  padding: 10px 16px;
   font-size: 16px;
   background-color: #ffffff;
   border: none;
   border-radius: 3px;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;
 
 const MenuList = styled.div`
@@ -111,11 +128,16 @@ const MenuList = styled.div`
     margin-right: 20px;
     font-weight: 200;
   }
+
+  /* :last-child > * > * {
+    padding-right: 0;
+  } */
 `;
 
 const MenuElement = styled.li`
   font-size: 14px;
   padding: 3px;
+  cursor: pointer;
 
   & * {
     font-weight: 200;
@@ -126,6 +148,9 @@ const MenuElement = styled.li`
   :hover {
     background-color: #ececec;
     border-radius: 3px;
-    cursor: pointer;
+  }
+
+  :last-child > * {
+    padding-right: 0;
   }
 `;
