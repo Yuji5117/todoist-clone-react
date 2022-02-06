@@ -3,11 +3,33 @@ import { GoComment } from "react-icons/go";
 import { MdPersonAddAlt } from "react-icons/md";
 import { BiSliderAlt } from "react-icons/bi";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { useState } from "react";
 
 const Header = () => {
+  const [title, setTitle] = useState<string>("テスト");
+  const [tmpTitle, setTmpTitle] = useState<string>(title);
+  const [isEditMode, setEditMode] = useState<boolean>(false);
+
+  const onSaveTitle = () => {
+    setTitle(tmpTitle);
+    setEditMode(false);
+  };
+
+  const onChangeTitle = (e: any) => {
+    e.preventDefault();
+    setTmpTitle(e.target.value);
+  };
+
   return (
     <Wrapper>
-      <div>タイトル</div>
+      {!isEditMode && <Title onClick={() => setEditMode(true)}>{title}</Title>}
+      {isEditMode && (
+        <div>
+          <input type="text" value={tmpTitle} onChange={onChangeTitle} />
+          <button onClick={onSaveTitle}>Save</button>
+          <button onClick={() => setEditMode(false)}>Cancel</button>
+        </div>
+      )}
       <div>
         <MenuList>
           <MenuElement>
@@ -37,6 +59,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 30px 50px;
+`;
+
+const Title = styled.h2`
+  margin: 0;
+  font-weight: bold;
 `;
 
 const MenuList = styled.div`
