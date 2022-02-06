@@ -1,7 +1,7 @@
 import { FiInbox } from "react-icons/fi";
 import { BsCalendarDate } from "react-icons/bs";
 import { BsCalendar3 } from "react-icons/bs";
-import { ImFilter } from "react-icons/im";
+import { MdGridView } from "react-icons/md";
 import styled from "styled-components";
 
 const SideBar = () => {
@@ -23,7 +23,7 @@ const SideBar = () => {
               Upcoming
             </CategoryElement>
             <CategoryElement>
-              <ImFilter size={18} color={"#EB8909"} />
+              <MdGridView size={18} color={"#EB8909"} />
               Filter / Label
             </CategoryElement>
           </CategoryList>
